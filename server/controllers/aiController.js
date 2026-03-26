@@ -90,7 +90,7 @@ INSTRUCTIONS:
 async function queryGemini(systemPrompt, userPrompt, history = []) {
   const client = getGeminiClient()
   const model = client.getGenerativeModel({
-    model: "gemini-1.5-flash",
+    model: "gemini-2.5-flash", // 👈 Change this line
     systemInstruction: systemPrompt,
   })
 
@@ -104,6 +104,7 @@ async function queryGemini(systemPrompt, userPrompt, history = []) {
   const result = await chat.sendMessage(userPrompt)
   return result.response.text()
 }
+
 
 async function queryOpenAI(systemPrompt, userPrompt, history = []) {
   const client = getOpenAIClient()
